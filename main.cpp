@@ -1,67 +1,79 @@
 #include <iostream>
 #include <stdlib.h>
-
 using namespace std;
 
-int inputArrSize();
-void inputArray(int[]);
-void displayArray(int[]);
-void selectArray(int[]);
+int inputArraySize();
+void inputArray(string[],string[],int[],int[],string[],string[]);
+void DisplayArray(string[],string[],int[],int[],string[],string[]);
 
 int arrSize;
 
 int main()
 {
-
-    int new_age[arrSize];
-    inputArray (new_age);
-    displayArray (new_age);
-
+    string Firstname[10];
+    string Lastname[10];
+    string Email[10];
+    string Address[10];
+    int Age [10];
+    int Contacts [10];
+    inputArray(Firstname,Lastname,Age,Contacts,Email,Address);
+    DisplayArray(Firstname,Lastname,Age,Contacts,Email,Address);
     return 0;
 }
 
-int inputArrSize()
+int inputArraySize ()
 {
-    cout << "Enter Array size 3-4: ";
+    int age [arrSize];
+
+    cout << "Enter Array Size : ";
     cin >> arrSize;
 
     return arrSize;
 }
 
-void inputArray (int age []){
+void inputArray (string Firstname[], string Lastname[], int Age[], int Contacts[], string Email[], string Address[])
+{
+    inputArraySize();
 
-    inputArrSize();
-    for(int i=0; i<= arrSize-1; i++){
-        cout << "Enter a value for position " << i+1 << " : ";
-        cin >> age [i];
+    for (int i=0; i<=arrSize-1;i++){
+        cout << "Enter First Name: ";
+        cin >> Firstname[i];
+    }
+
+    for (int i=0; i<=arrSize-1;i++){
+        cout << "Enter Last Name: ";
+        cin >> Lastname[i];
+    }
+
+    for (int i=0; i<=arrSize-1;i++){
+        cout << "Enter Age: ";
+        cin >> Age[i];
+    }
+
+    for (int i=0; i<=arrSize-1;i++){
+        cout << "Enter Contact No.: ";
+        cin >> Contacts[i];
+    }
+
+    for (int i=0; i<=arrSize-1;i++){
+        cout << "Enter Your Email: ";
+        cin >> Email[i];
+    }
+
+    for (int i=0; i<=arrSize-1;i++){
+        cout << "Enter Your Address: ";
+        cin >> Address[i];
     }
 }
 
-void displayArray(int age[]){
-    system ("CLS");
+void DisplayArray (string Firstname[], string Lastname[], int Age[], int Contacts[], string Email[], string Address[])
 
-    for (int i=0; i<=arrSize-1; i++){
-        cout << "The value at position" << i+1<< "is :" << age[i]<< endl;
-        }
-        selectArray(age);
-    }
-void selectArray(int age[]){
+{
 
-    int choice;
+system("CLS");
+    cout << "FIRSTNAME" << "|" << "LASTNAME" << "|" << "AGE" << "|" << "CONTACTS" << "|" << "EMAIL" << "|" << "ADDRESS" << endl;
+    for (int i=0; i<=arrSize-1;i++){
 
-    cout << "Select Array that you want to call :"<< endl;
-    cin >> choice;
-
-    if (choice==1){
-        cout << "The value at position 1 is :" << age[0]<< endl;
+        cout << " \n "<< Firstname[i]<< "|" << Lastname[i] << "|" << Age[i] << "|" << Contacts[i] << "|" << Email[i] << "|" << Address[i] << endl;
     }
-     if (choice==2){
-        cout << "The value at position 2 is :" << age[1]<< endl;
-    }
-     if (choice==3){
-        cout << "The value at position 3 is :" << age[2]<< endl;
-    }
-     if (choice==4){
-        cout << "The value at position 4 is :" << age[3]<< endl;
-    }
-    }
+}
